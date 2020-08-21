@@ -1,23 +1,50 @@
-// Add your functions here
-const map = (arr, callback) => {
+// Your code here
+const mapToNegativize = arr => {
     let newArr = [];
-    arr.forEach( e => newArr.push(callback(e)));
+    arr.forEach( e => newArr.push(e * -1));
+    return newArr;
+};
+
+const mapToNoChange = arr => {
+    let newArr = [];
+    arr.forEach( e => newArr.push(e));
+    return newArr;
+};
+
+const mapToDouble = arr => {
+    let newArr = [];
+    arr.forEach( e => newArr.push(e * 2));
     return newArr;
 }
 
-const reduce = (array, reducer, initialValue = array[0]) => {
-    let value = initialValue;
+const mapToSquare = arr => {
+    let newArr = [];
+    arr.forEach( e => newArr.push(e ** 2));
+    return newArr;
+}
 
-    if (value != array[0]) {
-    array.forEach( e => {
-      value = reducer(value, e)
-    })
+const reduceToTotal = (arr, start = 0) => {
+    let value = start;
+    arr.forEach( e => value += e);
     return value;
-  } else {
-    for (let i = 1; i < array.length; i++) {
-        let e = array[i]
-        value = reducer(value, e)
-    }
-  }
-  return value;
-};
+}
+
+const reduceToAllTrue = arr => {
+    let bool = true;
+    arr.forEach( e => {
+        if (!e) {
+            bool = false;
+        }
+    })
+    return bool;
+}
+
+const reduceToAnyTrue = arr => {
+    let bool = false;
+    arr.forEach( e => {
+        if (e) {
+            bool = true;
+        }
+    })
+    return bool;
+}
